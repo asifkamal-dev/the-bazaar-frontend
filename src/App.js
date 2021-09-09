@@ -1,13 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
-import { Route } from 'react-router-dom'
+// import { Route } from 'react-router-dom'
 
+import Header from './components/header/Header'
+import ProductsView from './components/products/products-view';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        Hello World
-      </header>
+    <div>
+      <Header />
+      <ProductsView />
+
     </div>
   );
 }
