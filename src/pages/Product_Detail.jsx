@@ -46,7 +46,7 @@ function ProductDetail(props) {
       <Container>
         <h1>Product Detail Page Hit</h1>
         <Card>
-          <Card.Img variant="top" src="#" />
+          <Card.Img variant="top" src={product.image} />
           <Card.Body>
             <Card.Title>{product.name}</Card.Title>
             <Card.Subtitle>Category:{category.name} </Card.Subtitle>

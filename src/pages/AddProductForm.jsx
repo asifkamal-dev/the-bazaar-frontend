@@ -8,6 +8,7 @@ function AddProductForm() {
     created_by: null,
     name: "",
     description: "",
+    image: "",
     price: null,
     in_stock: false,
   };
@@ -36,12 +37,14 @@ function AddProductForm() {
       description: productForm.description,
       category: parseInt(productForm.category),
       created_by: 1,
+      image: productForm.image,
       price: productForm.price,
       in_stock: true,
     };
     console.log(newProduct);
     // Submission through backend
     const url = "http://localhost:8000/products/";
+    console.log(newProduct);
     axios
       .post(url, newProduct)
       .then((res) => console.log(res.data))
@@ -53,7 +56,7 @@ function AddProductForm() {
     <div>
       <Container>
         <h1>Product Add Form Page</h1>
-        <Form onSubmit={handleSubmit}>
+        <Form noValidate onSubmit={handleSubmit}>
           <Form.Group controlId="name">
             <Form.Label>Product Name</Form.Label>
             <Form.Control
@@ -92,6 +95,17 @@ function AddProductForm() {
               <option value="9">Crafts</option>
             </Form.Select>
           </Form.Group>
+          <Form.Group controlId="image">
+            <Form.Label>Image url</Form.Label>
+            <Form.Control
+              required
+              name="image"
+              onChange={handleChange}
+              type="text"
+              placeholder="http:// ... something.jpg"
+            />
+            <Form.Control.Feedback>Looks Good!</Form.Control.Feedback>
+          </Form.Group>
           <Form.Group controlId="price">
             <Form.Label>Price</Form.Label>
             <Form.Control
@@ -102,7 +116,7 @@ function AddProductForm() {
               type="number"
               placeholder="20.99"
             />
-            <Form.Control.Feedback>Looks Good!</Form.Control.Feedback>
+            {/* <Form.Control.Feedback>Looks Good!</Form.Control.Feedback> */}
           </Form.Group>
           <Form.Group>
             <Form.Check

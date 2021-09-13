@@ -107,6 +107,18 @@ function EditProductForm({ match }) {
               <option value="9">Crafts</option>
             </Form.Select>
           </Form.Group>
+          <Form.Group controlId="image">
+            <Form.Label>Image url</Form.Label>
+            <Form.Control
+              required
+              name="image"
+              value={productForm.image}
+              onChange={handleChange}
+              type="text"
+              placeholder="http:// ... something.jpg"
+            />
+            <Form.Control.Feedback>Looks Good!</Form.Control.Feedback>
+          </Form.Group>
           <Form.Group controlId="price">
             <Form.Label>Price</Form.Label>
             <Form.Control

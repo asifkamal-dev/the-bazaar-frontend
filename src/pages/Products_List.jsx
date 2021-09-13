@@ -79,13 +79,13 @@ function ProductsList() {
       </div>
 
       <Container>
-        <Button href='/products/add' > Add Product </Button>
+        <Button className='mb-3' href='/products/add' > Add Product </Button>
         <CardGroup>
           <Row xs={1} md={2} lg={3} className="g-4">
             {products.map((product) => (
               <Col>
                 <Card key={product.id} style={{ width: "18rem" }}>
-                  <Card.Img variant="top" src={product.Img} />
+                  <Card.Img variant="top" src={product.image} />
                   <Card.Body>
                     <Card.Title>{product.name}</Card.Title>
                     <Card.Subtitle>Category: {product.category}</Card.Subtitle>
