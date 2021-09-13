@@ -78,7 +78,9 @@ function ProductDetail(props) {
             <Card.Title>{product.name}</Card.Title>
             <Card.Subtitle>Category:{category.name} </Card.Subtitle>
             <Card.Text>{product.description}</Card.Text>
-            <Button variant="primary">Go somewhere</Button>
+            <Card.Text>${product.price}</Card.Text>
+            <Button variant="success">Update</Button>
+            <Button variant="danger">Delete</Button>
           </Card.Body>
         </Card>
       </Container>
