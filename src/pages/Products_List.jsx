@@ -57,7 +57,7 @@ function ProductsList() {
   // }
 
   //statement to wait for products to load before loading data.
-  if (!products) return "Loading Data";
+  if (!products) return "Loading Data...";
   // console.log(products);
   // console.log(products[1].category_id);
 
@@ -94,7 +94,7 @@ function ProductsList() {
                     </Card.Subtitle>
                     <Card.Subtitle>Product id: {product.id}</Card.Subtitle>
                     <Card.Text>Description:{'\n'} {product.description}</Card.Text>
-                    <Button href={`/products/${product.id}`} variant="primary">
+                    <Button href={`/product/${product.id}`} variant="primary">
                       View
                     </Button>
                   </Card.Body>
