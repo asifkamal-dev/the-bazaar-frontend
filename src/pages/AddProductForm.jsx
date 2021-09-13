@@ -1,5 +1,5 @@
 import axios from "axios";
-import { React, useState, useEffect } from "react";
+import { React, useState } from "react";
 import { Form, Container, Button } from "react-bootstrap";
 
 function AddProductForm() {
@@ -25,8 +25,6 @@ function AddProductForm() {
   };
   console.log(productForm);
 
-  const [validated, setValidated] = useState(false);
-
   const handleSubmit = (event) => {
     event.preventDefault();
     // Thought i needed headers, I didn't for submission
@@ -47,7 +45,7 @@ function AddProductForm() {
     axios
       .post(url, newProduct)
       .then((res) => console.log(res.data))
-      // .then((window.location = "http://localhost:3000/home"));
+      .then((window.location = "http://localhost:3000/home"));
     setProductForm(initialState);
   };
 
@@ -55,7 +53,7 @@ function AddProductForm() {
     <div>
       <Container>
         <h1>Product Add Form Page</h1>
-        <Form noValidate validate={validated} onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit}>
           <Form.Group controlId="name">
             <Form.Label>Product Name</Form.Label>
             <Form.Control
