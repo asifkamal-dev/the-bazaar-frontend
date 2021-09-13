@@ -18,11 +18,7 @@ function ProductDetail(props) {
     axios
       .get(url)
       .then((res) => {
-        // checking the data recieved
-        // console.log("Unique Product Data recieved on productdetailpage.jsx");
-        // console.log(res.data.category);
         const promise = res.data.category;
-        // console.log(promise);
         const catUrl = `http://localhost:8000/category/${promise}`;
         console.log(catUrl);
         axios.get(catUrl).then((res) => {
@@ -36,36 +32,13 @@ function ProductDetail(props) {
       });
   }
 
-  // function requestProduct() {
-  //   const id = props.match.params.id;
-  //   const url = `http://localhost:8000/product/${id}`;
-  //   axios
-  //     .get(url)
-  //     .then((res) => {
-  //       // checking the data recieved
-  //       console.log("Unique Product Data recieved on productdetailpage.jsx");
-  //       console.log(res.data);
-  //       setProduct(res.data);
-  //       return res.data
-  //     })
-  //     .catch(() => {
-  //       console.log("error reterving product data on prod-detail");
-  //     })
-  // }
-  // async function requestData() {
-  //     await requestProduct()
-  //   axios
-  //     .get(`http://localhost:8000/category/${product.category}`)
-  //     .then((res) => {
-  //       console.log("category axios hit");
-  //       console.log(res.data);
-  //       setCategory(res.data);
-  //     })
-  //     .catch((e) => {
-  //       console.log(e);
-  //       console.log("error recieved reteriving data");
-  //     });
-  // }
+  function deleteProduct() {
+      const id = props.match.params.id
+      const url = `http://localhost:8000/product/${id}`
+      axios.delete(url)
+      .then((window.location = 'http://localhost:3000/home' ))
+  }
+
 
   if (!category) return "Loading Data...";
   return (
@@ -80,7 +53,7 @@ function ProductDetail(props) {
             <Card.Text>{product.description}</Card.Text>
             <Card.Text>${product.price}</Card.Text>
             <Button href={`/product/edit/${product.id}`} variant="success">Update</Button>
-            <Button href={`/product/delete/${product.id}`}  variant="danger">Delete</Button>
+            <Button onClick={deleteProduct} variant="danger">Delete</Button>
           </Card.Body>
         </Card>
       </Container>
