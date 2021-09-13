@@ -7,7 +7,7 @@ import ProductsList from './pages/Products_List';
 import Homepage from './components/homepage/homepage';
 import AddProductForm from './pages/AddProductForm';
 import ProductDetail from './pages/Product_Detail';
-
+import EditProductForm from './pages/EditProductForm';
 
 function App() {
   return (
@@ -15,8 +15,9 @@ function App() {
       <Header />
       <Route exact path ='/' component={Homepage} />
       <Route path ='/home' component={ProductsList} />
-      <Route path ='/product/add' component={AddProductForm} />
-      <Route path ='/product/:id' render={(routerProps)=> (<ProductDetail match={routerProps.match} />)} />
+      <Route path ='/products/add' component={AddProductForm} />
+      <Route exact path ='/product/:id' render={(routerProps)=> (<ProductDetail match={routerProps.match} />)} />
+      <Route path ='/product/edit/:id' render={(routerProps)=> (<EditProductForm match={routerProps.match} />)} />
       {/* <Route path ='/product/:id' component={ProductDetail} /> */}
 
     </div>

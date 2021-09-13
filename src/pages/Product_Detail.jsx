@@ -79,8 +79,8 @@ function ProductDetail(props) {
             <Card.Subtitle>Category:{category.name} </Card.Subtitle>
             <Card.Text>{product.description}</Card.Text>
             <Card.Text>${product.price}</Card.Text>
-            <Button variant="success">Update</Button>
-            <Button variant="danger">Delete</Button>
+            <Button href={`/product/edit/${product.id}`} variant="success">Update</Button>
+            <Button href={`/product/delete/${product.id}`}  variant="danger">Delete</Button>
           </Card.Body>
         </Card>
       </Container>
