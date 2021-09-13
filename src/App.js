@@ -3,9 +3,9 @@ import 'bootstrap/dist/css/bootstrap.min.css'; // Bootstrap css stylesheet
 import { Route } from 'react-router-dom'
 
 import Header from './components/header/header'
-import ProductsView from './components/products/products-view';
+import ProductsList from './pages/Products_List';
 import Homepage from './components/homepage/homepage';
-
+import AddProductForm from './pages/AddProductForm';
 
 
 
@@ -14,7 +14,9 @@ function App() {
     <div>
       <Header />
       <Route exact path ='/' component={Homepage} />
-      <Route  path ='/home' component={ProductsView} />
+      <Route path ='/home' component={ProductsList} />
+      <Route path ='/product/add' component={AddProductForm} />
+      {/* <Route path = */}
 
     </div>
   );

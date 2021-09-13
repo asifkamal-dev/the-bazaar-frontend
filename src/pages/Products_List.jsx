@@ -5,7 +5,7 @@ import { Row, Col, Card, Button, Container, CardGroup } from "react-bootstrap";
 // import Button from "react-bootstrap/Button";
 // import { Container } from "react-bootstrap";
 
-function ProductsView() {
+function ProductsList() {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     const getProducts = async () => {
@@ -58,7 +58,9 @@ function ProductsView() {
 
   //statement to wait for products to load before loading data.
   if (!products) return "Loading Data";
-  console.log(products);
+  // console.log(products);
+  // console.log(products[1].category_id);
+
   return (
     <div>
       <div className="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
@@ -77,6 +79,7 @@ function ProductsView() {
       </div>
 
       <Container>
+        <Button href='/product/add' > Add Product </Button>
         <CardGroup>
           <Row xs={1} md={2} lg={3} className="g-4">
             {products.map((product) => (
@@ -105,4 +108,4 @@ function ProductsView() {
   );
 }
 
-export default ProductsView;
+export default ProductsList;
