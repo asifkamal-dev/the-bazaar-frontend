@@ -8,7 +8,8 @@ import Homepage from './components/homepage/homepage';
 import AddProductForm from './pages/AddProductForm';
 import ProductDetail from './pages/Product_Detail';
 import EditProductForm from './pages/EditProductForm';
-import CategoryList from './pages/CategoryList';
+import CategoriesList from './pages/CategoriesList';
+import CategoryView from './pages/CategoryView';
 
 function App() {
   return (
@@ -19,8 +20,8 @@ function App() {
       <Route path ='/products/add' component={AddProductForm} />
       <Route exact path ='/product/:id' render={(routerProps)=> (<ProductDetail match={routerProps.match} />)} />
       <Route path ='/product/edit/:id' render={(routerProps)=> (<EditProductForm match={routerProps.match} />)} />
-      <Route path = '/categories/' component = {CategoryList} />
-      <Route exact path ='/category/:id' render={(routerProps)=> (<ProductDetail match={routerProps.match} />)} />
+      <Route path = '/categories/' component = {CategoriesList} />
+      <Route exact path ='/category/:id' render={(routerProps)=> (<CategoryView match={routerProps.match} />)} />
       {/* <Route path ='/product/:id' component={ProductDetail} /> */}
 
     </div>
