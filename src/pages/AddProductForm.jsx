@@ -14,8 +14,10 @@ function AddProductForm() {
   };
 
   const [productForm, setProductForm] = useState(initialState);
+  const [checkBox, setCheckBox] = useState();
 
   const handleChange = (e) => {
+    console.log(e.target.checked);
     const { name, value } = e.target;
     setProductForm((oldData) => {
       return {
@@ -24,6 +26,13 @@ function AddProductForm() {
       };
     });
   };
+  const handleCheckBoxChange = (e) => {
+    console.log(e.target.checked);
+    setCheckBox({
+      in_stock: e.target.checked,
+    });
+  };
+
   console.log(productForm);
 
   const handleSubmit = (event) => {
@@ -39,17 +48,18 @@ function AddProductForm() {
       created_by: 1,
       image: productForm.image,
       price: productForm.price,
-      in_stock: true,
+      in_stock: checkBox.in_stock,
     };
+
     console.log(newProduct);
     // Submission through backend
     const url = "http://localhost:8000/products/";
     console.log(newProduct);
-    axios
-      .post(url, newProduct)
-      .then((res) => console.log(res.data))
-      .then((window.location = "http://localhost:3000/home"));
-    setProductForm(initialState);
+    // axios
+    //   .post(url, newProduct)
+    //   .then((res) => console.log(res.data))
+    //   .then((window.location = "http://localhost:3000/home"));
+    // setProductForm(initialState);
   };
 
   return (
@@ -120,11 +130,11 @@ function AddProductForm() {
           </Form.Group>
           <Form.Group>
             <Form.Check
-              type="switch"
+              type="checkbox"
               controlID="in_stock"
               label="In Stock"
               name="in_stock"
-              onChange={handleChange}
+              onChange={handleCheckBoxChange}
             />
           </Form.Group>
           <Button variant="primary" type="submit">

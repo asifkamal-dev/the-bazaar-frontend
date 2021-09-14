@@ -23,9 +23,6 @@ function EditProductForm({ match }) {
       .catch((e) => {
         console.log(e);
       });
-    // return () => {
-    //   //   cleanup
-    // };
   }, []);
 
   const handleChange = (e) => {
@@ -133,11 +130,11 @@ function EditProductForm({ match }) {
           </Form.Group>
           <Form.Group>
             <Form.Check
-              type="switch"
+              type="checkbox"
               controlID="in_stock"
               label="In Stock"
               name="in_stock"
-              value={productForm.in_stock}
+              value={productForm.in_stock ? 'on' : "off"}
               onChange={handleChange}
             />
           </Form.Group>
