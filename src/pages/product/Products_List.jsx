@@ -79,7 +79,7 @@ function ProductsList() {
       </div>
 
       <Container>
-        <Button className='mb-3' href='/products/add' > Add Product </Button>
+        
         <CardGroup>
           <Row xs={1} md={2} lg={3} className="g-4">
             {products.map((product) => (

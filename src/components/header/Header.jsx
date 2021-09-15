@@ -3,7 +3,7 @@ import axios from "axios";
 import { Navbar, Container, Nav, Form, NavDropdown } from "react-bootstrap";
 
 function Header() {
-  const [category, setCategory] = useState();
+  const [categorys, setCategorys] = useState();
 
   useEffect(() => {
     requestCategoryInfo();
@@ -13,11 +13,11 @@ function Header() {
     const url = "http://localhost:8000/categories/";
     axios.get(url).then((res) => {
       console.log(res.data);
-      setCategory(res.data);
+      setCategorys(res.data);
       console.log("Category Details Recieved in Header");
     });
   };
-  if (!category) return "Loading Data...."
+  if (!categorys) return "Loading Data....";
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
@@ -28,32 +28,23 @@ function Header() {
             <Nav.Link href="/home">Home</Nav.Link>
             <NavDropdown title="Category" id="collasible-nav-dropdown">
               <NavDropdown.Item href="/categories"> View All </NavDropdown.Item>
-            {category.map((category)=> (
-              <NavDropdown.Item href={`/category/${category.id}`}>{category.name} </NavDropdown.Item>
+              {categorys.map((category) => (
+                <NavDropdown.Item href={`/category/${category.id}`}>
+                  {category.name}{" "}
+                </NavDropdown.Item>
               ))}
-              </NavDropdown>
+            </NavDropdown>
           </Nav>
           <Nav>
-            <Nav.Link href="signin">Sign in</Nav.Link>
-            <Nav.Link href="signin">Basket</Nav.Link>
+            <Nav.Link href="/basket">Basket</Nav.Link>
+            <Nav.Link href="/signin">Store Front</Nav.Link>
           </Nav>
         </Navbar.Collapse>
+            {/* <Form>
+              <Form.Check type="switch" label="turn on user signin" />
+            </Form> */}
       </Container>
     </Navbar>
-
-    // <Navbar bg='dark'  variant="dark">
-    //   <Container >
-    //     <Navbar.Brand href="/">The Bazaar</Navbar.Brand>
-    //     <Nav className="me-auto">
-    //       <Nav.Link href="/home">Home</Nav.Link>
-    //       <Nav.Link href="/categories">Categories</Nav.Link>
-    //       <Nav.Link href="#">Sign Out</Nav.Link>
-    //     </Nav>
-    //     <Form>
-    //       <Form.Check type='switch' label='turn on user front'  />
-    //     </Form>
-    //   </Container>
-    // </Navbar>
   );
 }
 

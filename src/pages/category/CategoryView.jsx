@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Card, CardGroup, Container, Spinner } from "react-bootstrap";
-import { ListProductView } from "../components/categoryviews/ListProductView";
+import { ListProductView } from "../../components/categoryviews/ListProductView";
 
 function CategoryView({ match }) {
   const [singleCategory, setSingleCategory] = useState();

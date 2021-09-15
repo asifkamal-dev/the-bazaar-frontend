@@ -1,8 +1,24 @@
 import axios from "axios";
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import { Form, Container, Button } from "react-bootstrap";
 
 function AddProductForm() {
+  // bringing in the categories for this form
+  const [categorys, setCategorys] = useState();
+
+  useEffect(() => {
+    requestCategoryInfo();
+  }, []);
+
+  const requestCategoryInfo = () => {
+    const url = "http://localhost:8000/categories/";
+    axios.get(url).then((res) => {
+      console.log(res.data);
+      setCategorys(res.data);
+      console.log("Category Details Recieved in Header");
+    });
+  };
+
   const initialState = {
     category: null,
     created_by: null,
@@ -48,20 +64,20 @@ function AddProductForm() {
       created_by: 1,
       image: productForm.image,
       price: productForm.price,
-      in_stock: checkBox.in_stock,
+      in_stock: true,
     };
 
     console.log(newProduct);
     // Submission through backend
     const url = "http://localhost:8000/products/";
     console.log(newProduct);
-    // axios
-    //   .post(url, newProduct)
-    //   .then((res) => console.log(res.data))
-    //   .then((window.location = "http://localhost:3000/home"));
-    // setProductForm(initialState);
+    axios
+      .post(url, newProduct)
+      .then((res) => console.log(res.data))
+      .then((window.location = "http://localhost:3000/home"));
+    setProductForm(initialState);
   };
-
+  if (!categorys) return "Loading Data....";
   return (
     <div>
       <Container>
@@ -72,7 +88,6 @@ function AddProductForm() {
             <Form.Control
               required
               name="name"
-              // value={setProductForm.name}
               onChange={handleChange}
               type="text"
               placeholder="Something like a Vase"
@@ -100,9 +115,9 @@ function AddProductForm() {
               aria-label="Default select example"
             >
               <option>Open this select menu</option>
-              <option value="7">Pottery</option>
-              <option value="8">Arts</option>
-              <option value="9">Crafts</option>
+              {categorys.map((category)=> (
+                <option value={category.id}>{category.name}</option>
+              ))}
             </Form.Select>
           </Form.Group>
           <Form.Group controlId="image">
@@ -128,7 +143,7 @@ function AddProductForm() {
             />
             {/* <Form.Control.Feedback>Looks Good!</Form.Control.Feedback> */}
           </Form.Group>
-          <Form.Group>
+          {/* <Form.Group>
             <Form.Check
               type="checkbox"
               controlID="in_stock"
@@ -136,7 +151,7 @@ function AddProductForm() {
               name="in_stock"
               onChange={handleCheckBoxChange}
             />
-          </Form.Group>
+          </Form.Group> */}
           <Button variant="primary" type="submit">
             Submit
           </Button>
