@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { Card, CardGroup, Container, Spinner } from "react-bootstrap";
+import { Card, CardGroup, Container, Spinner, Button } from "react-bootstrap";
 import { ListProductView } from "../../components/categoryviews/ListProductView";
 
 function CategoryView({ match }) {
@@ -31,9 +31,13 @@ function CategoryView({ match }) {
             <Card.Title>
               {singleCategory.name}
             </Card.Title>
+            <Card.Body> 
+
             <Card.Text>
               {singleCategory.description}
             </Card.Text>
+            <Button variant='secondary' href={`/category/edit/${singleCategory.id}`}  >Edit Category</Button>
+            </Card.Body>
           </Card>
         </CardGroup>
         {singleCategory.products.map((product) => (

@@ -12,6 +12,7 @@ import CategoriesList from './pages/category/CategoriesList';
 import CategoryView from './pages/category/CategoryView';
 import SignIn from './pages/signin/SignIn';
 import AddCategoryForm from './pages/category/AddCategoryForm';
+import EditCategoryForm from './pages/category/EditCategoryForm';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
       <Route path = '/categories/' component = {CategoriesList} />
       <Route path = '/add/category' component={AddCategoryForm} />
       <Route exact path ='/category/:id' render={(routerProps)=> (<CategoryView match={routerProps.match} />)} />
+      <Route path ='/category/edit/:id' render={(routerProps)=> (<EditCategoryForm match={routerProps.match} />)} />
       {/* <Route path ='/product/:id' component={ProductDetail} /> */}
 
     </div>
