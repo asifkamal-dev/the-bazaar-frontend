@@ -13,6 +13,7 @@ import CategoryView from './pages/category/CategoryView';
 import SignIn from './pages/signin/SignIn';
 import AddCategoryForm from './pages/category/AddCategoryForm';
 import EditCategoryForm from './pages/category/EditCategoryForm';
+import BasketView from './pages/basket/BasketView';
 
 function App() {
   return (
@@ -28,7 +29,7 @@ function App() {
       <Route path = '/add/category' component={AddCategoryForm} />
       <Route exact path ='/category/:id' render={(routerProps)=> (<CategoryView match={routerProps.match} />)} />
       <Route path ='/category/edit/:id' render={(routerProps)=> (<EditCategoryForm match={routerProps.match} />)} />
-      {/* <Route path ='/product/:id' component={ProductDetail} /> */}
+      <Route path ='/basket' component={BasketView} />
 
     </div>
   );
