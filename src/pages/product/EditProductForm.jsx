@@ -4,9 +4,15 @@ import { Form, Container, Button } from "react-bootstrap";
 
 function EditProductForm({ match }) {
   const [productForm, setProductForm] = useState();
-//   const [updateForm, setUpdateForm] = useState();
+  const [categorys, setCategorys] = useState();
+
 
   useEffect(() => {
+    getProductData()
+  }, []);
+
+
+  const getProductData = () => {
     const id = match.params.id;
     console.log(id);
     const url = `http://localhost:8000/product/${id}`;
@@ -15,16 +21,18 @@ function EditProductForm({ match }) {
       .get(url)
       .then((res) => {
         console.log(res.data);
-        const data = res.data;
-        setProductForm(data);
-        // setUpdateForm(data);
-        console.log("data has been received and set");
+        setProductForm(res.data);
+        const url =  "http://localhost:8000/categories/"
+        axios.get(url).then((res)=> {
+          console.log(res.data)
+          setCategorys(res.data)
+          console.log('Category details received in EditProductForm');
+        })
       })
       .catch((e) => {
         console.log(e);
       });
-  }, []);
-
+  }
   const handleChange = (e) => {
     const { name, value } = e.target;
     setProductForm((oldData) => {
@@ -59,7 +67,7 @@ function EditProductForm({ match }) {
     .catch((err) => console.log(err.data))
 
   };
-  if (!productForm) return "Loading Data...";
+  if (!categorys) return "Loading Data...";
   return (
     <div>
       <Container>
@@ -99,9 +107,12 @@ function EditProductForm({ match }) {
               aria-label="Default select example"
             >
               <option>Open this select menu</option>
-              <option value="7">Pottery</option>
+              {categorys.map((category)=> (
+                <option value={category.id}>{category.name}</option>
+              ))}
+              {/* <option value="7">Pottery</option>
               <option value="8">Arts</option>
-              <option value="9">Crafts</option>
+              <option value="9">Crafts</option> */}
             </Form.Select>
           </Form.Group>
           <Form.Group controlId="image">
