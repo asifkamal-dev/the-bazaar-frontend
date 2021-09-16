@@ -7,7 +7,8 @@ import { BrowserRouter as Router, Switch } from "react-router-dom";
 import axios from 'axios'
 // Importing the Bootstrap CSS
 import "bootstrap/dist/css/bootstrap.min.css";
-axios.defaults.baseURL = 'http://localhost:8000'
+// axios.defaults.baseURL = 'http://localhost:8000'
+axios.defaults.baseURL = 'https://thebazaar-backend.herokuapp.com/'
 
 
 ReactDOM.render(
