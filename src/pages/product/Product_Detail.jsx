@@ -14,12 +14,12 @@ function ProductDetail(props) {
   async function getProdDetails() {
     console.log("running product details function");
     const id = props.match.params.id;
-    const url = `http://localhost:8000/product/${id}`;
+    const url = `/product/${id}`;
     axios
       .get(url)
       .then((res) => {
         const promise = res.data.category;
-        const catUrl = `http://localhost:8000/category/${promise}`;
+        const catUrl = `/category/${promise}`;
         console.log(catUrl);
         axios.get(catUrl).then((res) => {
           console.log(res.data);
@@ -34,9 +34,10 @@ function ProductDetail(props) {
 
   function deleteProduct() {
       const id = props.match.params.id
-      const url = `http://localhost:8000/product/${id}`
+      const url = `/product/${id}`
       axios.delete(url)
-      .then((window.location = 'http://localhost:3000/home' ))
+      // .then((window.location = 'http://localhost:3000/home' ))
+      .then((window.location = '/home' ))
   }
 
 

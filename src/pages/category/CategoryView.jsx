@@ -12,7 +12,7 @@ function CategoryView({ match }) {
 
   const requestCategoryInfo = () => {
     const id = match.params.id;
-    const url = `http://localhost:8000/category/${id}`;
+    const url = `/category/${id}`;
     axios.get(url).then((res) => {
       console.log(res.data);
       setSingleCategory(res.data);
@@ -22,9 +22,9 @@ function CategoryView({ match }) {
 
   function deleteCategory() {
     const id = match.params.id
-    const url = `http://localhost:8000/category/${id}`
+    const url = `/category/${id}`
     axios.delete(url)
-    .then((window.location = 'http://localhost:3000/categories'))
+    .then((window.location = '/categories'))
 
   }
 

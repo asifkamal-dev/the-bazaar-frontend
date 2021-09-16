@@ -22,11 +22,11 @@ function AddCategoryForm() {
 
   const handleSumbit = (e) => {
     e.preventDefault();
-    const url = "http://localhost:8000/categories/";
+    const url = "/categories/";
     console.log(categoryForm);
     axios.post(url, categoryForm)
     .then((res)=> console.log(res.data))
-    .then((window.location = 'http://localhost:3000/categories'))
+    .then((window.location = '/categories'))
     setCategoryForm(initialState)
   };
 

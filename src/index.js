@@ -4,9 +4,11 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router, Switch } from "react-router-dom";
-
+import axios from 'axios'
 // Importing the Bootstrap CSS
 import "bootstrap/dist/css/bootstrap.min.css";
+axios.defaults.baseURL = 'http://localhost:8000'
+
 
 ReactDOM.render(
   <React.StrictMode>

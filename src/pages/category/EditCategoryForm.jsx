@@ -7,7 +7,7 @@ function EditCategoryForm({match}) {
 
     useEffect(() => {
         const id = match.params.id
-        const url = `http://localhost:8000/category/${id}`
+        const url = `/category/${id}`
         axios.get(url)
         .then((res)=> {
             console.log(res.data)
@@ -34,7 +34,7 @@ function EditCategoryForm({match}) {
         e.preventDefault()
         console.log(categoryForm)
         const id = match.params.id
-        const url = `http://localhost:8000/category/${id}`
+        const url = `/category/${id}`
         axios.put(url, categoryForm)
         .then((res)=> console.log(res))
         .then((window.location = 'http://localhost:3000/categories'))

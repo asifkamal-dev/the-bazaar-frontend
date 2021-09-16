@@ -10,7 +10,7 @@ function Header() {
   }, []);
 
   const requestCategoryInfo = () => {
-    const url = "http://localhost:8000/categories/";
+    const url = "/categories/";
     axios.get(url).then((res) => {
       console.log(res.data);
       setCategorys(res.data);

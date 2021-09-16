@@ -15,14 +15,14 @@ function EditProductForm({ match }) {
   const getProductData = () => {
     const id = match.params.id;
     console.log(id);
-    const url = `http://localhost:8000/product/${id}`;
+    const url = `/product/${id}`;
     console.log(url);
     axios
       .get(url)
       .then((res) => {
         console.log(res.data);
         setProductForm(res.data);
-        const url =  "http://localhost:8000/categories/"
+        const url =  "/categories/"
         axios.get(url).then((res)=> {
           console.log(res.data)
           setCategorys(res.data)
@@ -58,12 +58,12 @@ function EditProductForm({ match }) {
     }
     console.log(editedProduct);
     const id = match.params.id
-    const url = `http://localhost:8000/product/${id}`;
+    const url = `/product/${id}`;
     axios.put(url, editedProduct)
     .then((res) => {
         console.log(res.data);
     })
-    .then((window.location = 'http://localhost:3000/home'))
+    .then((window.location = '/home'))
     .catch((err) => console.log(err.data))
 
   };

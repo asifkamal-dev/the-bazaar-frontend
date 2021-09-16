@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import axios from 'axios'
 import { Row, Col, Card, Button, Container, CardGroup } from "react-bootstrap";
 // import Card from "react-bootstrap/card";
 // import Button from "react-bootstrap/Button";
@@ -16,7 +16,7 @@ function ProductsList() {
   }, []);
 
   const requestProducts = () => {
-    const url = "http://localhost:8000/products/";
+    const url = "/products/"
     axios
       .get(url)
       .then((res) => {

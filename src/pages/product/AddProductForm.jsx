@@ -11,7 +11,7 @@ function AddProductForm() {
   }, []);
 
   const requestCategoryInfo = () => {
-    const url = "http://localhost:8000/categories/";
+    const url = "/categories/";
     axios.get(url).then((res) => {
       console.log(res.data);
       setCategorys(res.data);
@@ -69,12 +69,12 @@ function AddProductForm() {
 
     console.log(newProduct);
     // Submission through backend
-    const url = "http://localhost:8000/products/";
+    const url = "/products/";
     console.log(newProduct);
     axios
       .post(url, newProduct)
       .then((res) => console.log(res.data))
-      .then((window.location = "http://localhost:3000/home"));
+      .then((window.location = "/home"));
     setProductForm(initialState);
   };
   if (!categorys) return "Loading Data....";
