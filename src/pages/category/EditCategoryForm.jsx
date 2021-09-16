@@ -37,7 +37,7 @@ function EditCategoryForm({match}) {
         const url = `/category/${id}`
         axios.put(url, categoryForm)
         .then((res)=> console.log(res))
-        .then((window.location = 'http://localhost:3000/categories'))
+        .then((window.location = '/categories'))
         .catch((err)=> console.log(err))
     }
 
