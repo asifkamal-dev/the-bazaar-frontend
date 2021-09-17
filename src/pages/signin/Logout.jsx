@@ -3,23 +3,21 @@ import axiosInstance from '../../components/axios-api-jwt/Axios-Api'
 import {useHistory} from 'react-router-dom'
 
 function Logout() {
-    const history = useHistory()
+	const history = useHistory();
 
-    useEffect(()=> {
-        const response = axiosInstance.post('user/logout/blacklist/', {
-            refresh_token: localStorage.getItem('refresh_token')
-        })
-        localStorage.removeItem('access_token');
-        localStorage.removeItem('refresh_token');
-        axiosInstance.defaults.headers["Authorization"] = null;
-        history.push('/login')
-    })
-    
-    return (
-        <div>
-            Logout
-        </div>
-    )
+	useEffect(() => {
+
+		const response = axiosInstance.post('user/logout/blacklist/', {
+			refresh_token: localStorage.getItem('refresh_token'),
+		});
+        console.log(response);
+        console.log('logging out function running');
+		localStorage.removeItem('access_token');
+		localStorage.removeItem('refresh_token');
+		axiosInstance.defaults.headers['Authorization'] = null;
+		history.push('/login');
+	});
+	return <div>Logout</div>;
 }
 
 export default Logout
