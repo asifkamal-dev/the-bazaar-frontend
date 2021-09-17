@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Button } from 'react-bootstrap'
 
-function SignIn() {
+function Login() {
     return (
         <div>
             <Container>
@@ -13,4 +13,4 @@ function SignIn() {
     )
 }
 
-export default SignIn
+export default Login

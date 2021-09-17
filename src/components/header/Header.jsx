@@ -37,7 +37,8 @@ function Header() {
           </Nav>
           <Nav>
             <Nav.Link href="/basket">Basket</Nav.Link>
-            <Nav.Link href="/signin">Store Front</Nav.Link>
+            <Nav.Link href="/register">Register</Nav.Link>
+            <Nav.Link href="/login">Login</Nav.Link>
           </Nav>
         </Navbar.Collapse>
             {/* <Form>

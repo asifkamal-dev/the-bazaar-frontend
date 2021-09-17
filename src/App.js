@@ -10,7 +10,8 @@ import ProductDetail from './pages/product/Product_Detail';
 import EditProductForm from './pages/product/EditProductForm';
 import CategoriesList from './pages/category/CategoriesList';
 import CategoryView from './pages/category/CategoryView';
-import SignIn from './pages/signin/SignIn';
+import Login from './pages/signin/Login';
+import Register from './pages/signin/Register';
 import AddCategoryForm from './pages/category/AddCategoryForm';
 import EditCategoryForm from './pages/category/EditCategoryForm';
 import BasketView from './pages/basket/BasketView';
@@ -20,7 +21,8 @@ function App() {
     <div>
       <Header />
       <Route exact path ='/' component={Homepage} />
-      <Route path ='/signin' component={SignIn} />
+      <Route path ='/register' component={Register} />
+      <Route path ='/login' component={Login} />
       <Route path ='/home' component={ProductsList} />
       <Route path ='/add/product' component={AddProductForm} />
       <Route exact path ='/product/:id' render={(routerProps)=> (<ProductDetail match={routerProps.match} />)} />
