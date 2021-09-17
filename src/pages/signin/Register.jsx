@@ -26,7 +26,8 @@ function Register() {
         console.log(res);
         history.push("/login");
         console.log(res.data);
-      });
+      })
+      .cathc((err) => console.log(err))
   };
 
 
