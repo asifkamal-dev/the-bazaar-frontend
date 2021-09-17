@@ -36,9 +36,10 @@ function Header() {
             </NavDropdown>
           </Nav>
           <Nav>
-            <Nav.Link href="/basket">Basket</Nav.Link>
+            {/* <Nav.Link href="/basket">Basket</Nav.Link> */}
             <Nav.Link href="/register">Register</Nav.Link>
             <Nav.Link href="/login">Login</Nav.Link>
+            <Nav.Link href="/logout">Logout</Nav.Link>
           </Nav>
         </Navbar.Collapse>
             {/* <Form>

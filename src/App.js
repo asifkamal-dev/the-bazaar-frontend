@@ -11,6 +11,7 @@ import EditProductForm from './pages/product/EditProductForm';
 import CategoriesList from './pages/category/CategoriesList';
 import CategoryView from './pages/category/CategoryView';
 import Login from './pages/signin/Login';
+import Logout from './pages/signin/Logout';
 import Register from './pages/signin/Register';
 import AddCategoryForm from './pages/category/AddCategoryForm';
 import EditCategoryForm from './pages/category/EditCategoryForm';
@@ -23,6 +24,7 @@ function App() {
       <Route exact path ='/' component={Homepage} />
       <Route path ='/register' component={Register} />
       <Route path ='/login' component={Login} />
+      <Route path ='/logout' component={Logout} />
       <Route path ='/home' component={ProductsList} />
       <Route path ='/add/product' component={AddProductForm} />
       <Route exact path ='/product/:id' render={(routerProps)=> (<ProductDetail match={routerProps.match} />)} />
